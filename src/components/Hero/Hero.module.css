@@ -1,0 +1,236 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100svh - 70px);
+  padding: 40px 32px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: calc(100svh - 96px);
+    padding: 30px 20px;
+  }
+}
+
+/* Background blob decoration */
+.blob {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    var(--accent-bg) 0%,
+    rgba(170, 59, 255, 0.03) 70%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  animation: floatBlob 10s ease-in-out infinite alternate;
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(50px, 30px) scale(1.1);
+  }
+}
+
+/* Engineering-themed SVG grid background */
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 40%,
+    transparent 80%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.name {
+  font-family: var(--heading);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--text-h);
+  line-height: 1.1;
+  margin: 0 0 16px 0;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, var(--text-h) 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .name {
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+}
+
+@media (max-width: 600px) {
+  .name {
+    font-size: 38px;
+  }
+}
+
+.role {
+  font-family: var(--sans);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 1024px) {
+  .role {
+    font-size: 22px;
+  }
+}
+
+.description {
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 40px 0;
+  max-width: 680px;
+}
+
+@media (max-width: 1024px) {
+  .description {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .actions {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(170, 59, 255, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.primaryButton:hover {
+  background-color: #922fe6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(170, 59, 255, 0.35);
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .primaryButton {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: var(--social-bg);
+  color: var(--text-h);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.socialLink:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background-color: var(--accent-bg);
+  transform: translateY(-2px);
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
