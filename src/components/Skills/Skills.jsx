@@ -14,7 +14,7 @@ export default function Skills() {
           <div key={catIndex} className={styles.categoryCard}>
             <h3 className={styles.categoryTitle}>{categoryObj.category}</h3>
             <div className={styles.pillsContainer}>
-              {categoryObj.items.map((skill, skillIndex) => (
+              {categoryObj.items?.map((skill, skillIndex) => (
                 <span key={skillIndex} className={styles.pill}>
                   {skill}
                 </span>
