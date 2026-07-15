@@ -1,10 +1,10 @@
 basics:
   name: 'Sharath Cherian Thomas'
   role: 'DevOps Engineer'
-  roleDescription: "Cloud Computing, IoT enthusiast. Skilled in Cloud Computing, MERN Stack, Android App Development, Google Kubernetes Engine, Communication Protocols, Raspberry Pi, Embedded C. Currently pursuing Master's degree in Advanced Computer Science."
+  roleDescription: 'Senior Engineer with expertise in Cloud Computing, CI/CD pipelines, and DevOps tooling. Skilled in Azure DevOps, React, Grafana, Google Kubernetes Engine, and containerised solutions. MSc in Advanced Computer Science from the University of Leicester.'
   email: 'sharathct22@gmail.com'
   linkedin: 'https://www.linkedin.com/in/sharathct22'
-  github: 'http://github.com/thesct22'
+  github: 'https://github.com/thesct22'
   website: 'https://sharath.is-a.dev'
 
 skills:

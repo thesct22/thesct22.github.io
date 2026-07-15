@@ -13,25 +13,12 @@ export default function SEO() {
     linkedin = '',
   } = basics;
 
-  const socialLinks = []; // no generic socialLinks array anymore
-
   const title = name && role ? `${name} | ${role}` : name;
   const description = roleDescription;
 
   // Compile sameAs array for JSON-LD schema
   const sameAsLinks = [];
   if (linkedin) sameAsLinks.push(linkedin);
-  if (socialLinks) {
-    socialLinks.forEach((link) => {
-      if (
-        link.url &&
-        link.url.startsWith('http') &&
-        !sameAsLinks.includes(link.url)
-      ) {
-        sameAsLinks.push(link.url);
-      }
-    });
-  }
 
   const personSchema = {
     '@context': 'https://schema.org',
