@@ -1,0 +1,117 @@
+.projects {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 32px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .projects {
+    padding: 60px 20px;
+  }
+}
+
+.sectionTitle {
+  font-family: var(--heading);
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+  letter-spacing: -1px;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: var(--accent);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projectCard {
+  border: 1px solid var(--border);
+  background-color: var(--social-bg);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  min-height: 200px;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-border);
+  box-shadow: 0 12px 30px rgba(170, 59, 255, 0.1);
+}
+
+.cardHeader {
+  margin-bottom: 12px;
+}
+
+.projectTitle {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+  letter-spacing: -0.25px;
+}
+
+.projectDescription {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  width: fit-content;
+  transition: color 0.2s ease;
+}
+
+.projectLink:hover {
+  color: #922fe6;
+}
+
+.linkIcon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.projectLink:hover .linkIcon {
+  transform: translate(2px, -2px);
+}
