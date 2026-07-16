@@ -7,7 +7,6 @@ export default function Hero() {
     name = '',
     role = '',
     bio = '',
-    summary = '',
     github = '',
     linkedin = '',
     email = '',
@@ -19,10 +18,7 @@ export default function Hero() {
       <div className={styles.content}>
         <h1 className={styles.name}>{name}</h1>
         <p className={styles.role}>{role}</p>
-        <p className={`${styles.bio} ${summary ? styles.hasSummary : ''}`}>
-          {bio}
-        </p>
-        {summary && <p className={styles.summary}>{summary}</p>}
+        <p className={styles.bio}>{bio}</p>
 
         <div className={styles.actions}>
           <a
