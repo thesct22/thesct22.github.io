@@ -10,20 +10,32 @@ vi.mock('../../utils/dataParser', () => ({
   getSiteContent: () => ({
     experience: [
       {
-        company: 'Synopsys Inc',
-        role: 'Senior Engineer',
-        startDate: 'July 2025',
-        endDate: 'Present',
+        company: 'Synopsys / Ansys',
         location: 'Sheffield, UK',
-        description: 'DevOps and platform support.',
+        startDate: 'Jul 2022',
+        endDate: 'Present',
+        note: 'Synopsys acquired Ansys in 2025',
+        milestones: [
+          {
+            role: 'Senior Engineer',
+            startDate: 'Jul 2025',
+            endDate: 'Present',
+            description: 'DevOps and platform support.',
+          },
+          {
+            role: 'R&D Engineer II',
+            startDate: 'Apr 2025',
+            endDate: 'Jul 2025',
+            description: 'R&D Engineering.',
+          },
+        ],
       },
       {
-        company: 'Ansys',
-        role: 'R&D Engineer II',
-        startDate: 'April 2025',
-        endDate: 'July 2025',
-        location: 'Sheffield, UK',
-        description: 'R&D Engineering.',
+        company: 'Samsung R&D Institute India',
+        location: 'Bengaluru, India',
+        startDate: 'Nov 2019',
+        endDate: 'Aug 2020',
+        description: 'Developed an IoT-based solution for Samsung Watches.',
       },
     ],
   }),
@@ -37,21 +49,36 @@ describe('Experience Component', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all experience items with company, role, location, dates, and description', () => {
+  it('renders all experience items with company, location, dates, note, and milestones/descriptions', () => {
     render(<Experience />);
 
+    // First main entry
+    expect(screen.getByText('Synopsys / Ansys')).toBeInTheDocument();
+    expect(
+      screen.getByText(/Sheffield, UK\s*·\s*Jul 2022\s*–\s*Present/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Synopsys acquired Ansys in 2025')
+    ).toBeInTheDocument();
+
+    // Milestones for first entry
     expect(screen.getByText('Senior Engineer')).toBeInTheDocument();
-    expect(screen.getByText('Synopsys Inc')).toBeInTheDocument();
-    expect(screen.getAllByText('Sheffield, UK')).toHaveLength(2);
-    expect(screen.getByText('July 2025 - Present')).toBeInTheDocument();
+    expect(screen.getByText('Jul 2025 – Present')).toBeInTheDocument();
     expect(
       screen.getByText('DevOps and platform support.')
     ).toBeInTheDocument();
 
-    // Second item
     expect(screen.getByText('R&D Engineer II')).toBeInTheDocument();
-    expect(screen.getByText('Ansys')).toBeInTheDocument();
-    expect(screen.getByText('April 2025 - July 2025')).toBeInTheDocument();
+    expect(screen.getByText('Apr 2025 – Jul 2025')).toBeInTheDocument();
     expect(screen.getByText('R&D Engineering.')).toBeInTheDocument();
+
+    // Second main entry (no milestones)
+    expect(screen.getByText('Samsung R&D Institute India')).toBeInTheDocument();
+    expect(
+      screen.getByText(/Bengaluru, India\s*·\s*Nov 2019\s*–\s*Aug 2020/)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Developed an IoT-based solution for Samsung Watches.')
+    ).toBeInTheDocument();
   });
 });

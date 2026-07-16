@@ -19,7 +19,6 @@ vi.mock('./utils/dataParser', () => ({
     },
     experience: [
       {
-        role: 'Site Reliability Engineer',
         company: 'Example Corp',
         startDate: '2023',
         endDate: 'Present',
@@ -61,7 +60,7 @@ describe('App Component Assembly', () => {
     expect(
       screen.getByRole('heading', { name: 'Experience', level: 2 })
     ).toBeInTheDocument();
-    expect(screen.getByText('Site Reliability Engineer')).toBeInTheDocument();
+    expect(screen.getByText('Example Corp')).toBeInTheDocument();
 
     // Verify Skills is rendered
     expect(
