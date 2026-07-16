@@ -32,11 +32,24 @@ vi.mock('./utils/dataParser', () => ({
         items: ['AWS', 'GCP'],
       },
     ],
-    portfolio: [
+    projects: [
       {
         title: 'Project Alpha',
         description: 'A cloud deployment project.',
         url: 'https://github.com/sharathct/alpha',
+      },
+    ],
+    education: [
+      {
+        degree: 'MSc Advanced Computer Science',
+        institution: 'University of Leicester',
+        startDate: '2021',
+        endDate: '2023',
+      },
+    ],
+    certifications: [
+      {
+        name: 'Kubernetes and Cloud Native Associate (KCNA)',
       },
     ],
   }),
@@ -73,6 +86,17 @@ describe('App Component Assembly', () => {
       screen.getByRole('heading', { name: 'Projects', level: 2 })
     ).toBeInTheDocument();
     expect(screen.getByText('Project Alpha')).toBeInTheDocument();
+
+    // Verify Education & Certifications is rendered
+    expect(
+      screen.getByRole('heading', {
+        name: 'Education & Certifications',
+        level: 2,
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('MSc Advanced Computer Science')
+    ).toBeInTheDocument();
 
     // Verify Footer is rendered
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();

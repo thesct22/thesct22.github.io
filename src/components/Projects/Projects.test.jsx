@@ -8,16 +8,18 @@ import Projects from './Projects';
 // Mock getSiteContent
 vi.mock('../../utils/dataParser', () => ({
   getSiteContent: () => ({
-    portfolio: [
+    projects: [
       {
         title: 'Project Alpha',
         url: 'https://alpha.example.com',
         description: 'First test project description.',
+        techStack: ['React', 'CSS'],
       },
       {
         title: 'Project Beta',
         url: 'https://beta.example.com',
         description: 'Second test project description.',
+        techStack: ['Node', 'Docker'],
       },
     ],
   }),
@@ -41,6 +43,14 @@ describe('Projects Component', () => {
     expect(
       screen.getByText('Second test project description.')
     ).toBeInTheDocument();
+  });
+
+  it('renders tech stack tags', () => {
+    render(<Projects />);
+    expect(screen.getByText('React')).toBeInTheDocument();
+    expect(screen.getByText('CSS')).toBeInTheDocument();
+    expect(screen.getByText('Node')).toBeInTheDocument();
+    expect(screen.getByText('Docker')).toBeInTheDocument();
   });
 
   it('renders project links with correct href and attributes', () => {
