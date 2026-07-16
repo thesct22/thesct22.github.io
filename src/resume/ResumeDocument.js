@@ -192,24 +192,64 @@ export default function ResumeDocument({ data }) {
             h(
               View,
               { key: i, style: s.expEntry },
-              h(
-                View,
-                { style: s.expHeader },
-                h(Text, { style: s.expRole }, exp.role),
-                h(
-                  Text,
-                  { style: s.expDate },
-                  `${exp.startDate} — ${exp.endDate}`
-                )
-              ),
+              // Company Info
               h(
                 View,
                 { style: s.expCompanyRow },
                 h(Text, { style: s.expCompany }, exp.company),
                 h(Text, { style: s.expLocation }, exp.location)
               ),
-              exp.description &&
-                h(Text, { style: s.expDescription }, exp.description)
+              exp.milestones
+                ? h(
+                    View,
+                    {
+                      style: {
+                        paddingLeft: 8,
+                        borderLeft: `1.5 solid ${colors.border}`,
+                        marginTop: 2,
+                      },
+                    },
+                    ...exp.milestones.map((ms, j) =>
+                      h(
+                        View,
+                        {
+                          key: j,
+                          style: {
+                            marginBottom:
+                              j === exp.milestones.length - 1 ? 0 : 6,
+                          },
+                        },
+                        h(
+                          View,
+                          { style: s.expHeader },
+                          h(Text, { style: s.expRole }, ms.role),
+                          h(
+                            Text,
+                            { style: s.expDate },
+                            `${ms.startDate} — ${ms.endDate}`
+                          )
+                        ),
+                        ms.description &&
+                          h(Text, { style: s.expDescription }, ms.description)
+                      )
+                    )
+                  )
+                : h(
+                    View,
+                    null,
+                    h(
+                      View,
+                      { style: s.expHeader },
+                      h(Text, { style: s.expRole }, exp.role),
+                      h(
+                        Text,
+                        { style: s.expDate },
+                        `${exp.startDate} — ${exp.endDate}`
+                      )
+                    ),
+                    exp.description &&
+                      h(Text, { style: s.expDescription }, exp.description)
+                  )
             )
           )
         ),
