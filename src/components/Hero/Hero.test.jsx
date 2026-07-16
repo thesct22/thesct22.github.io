@@ -11,7 +11,7 @@ vi.mock('../../utils/dataParser', () => ({
     basics: {
       name: 'Sharath Cherian Thomas',
       role: 'DevOps Engineer',
-      roleDescription: 'Cloud Computing and IoT enthusiast.',
+      bio: 'Cloud Computing and IoT enthusiast.',
       email: 'sharathct22@gmail.com',
       linkedin: 'https://www.linkedin.com/in/sharathct22',
       github: 'http://github.com/thesct22',
@@ -21,7 +21,7 @@ vi.mock('../../utils/dataParser', () => ({
 }));
 
 describe('Hero Component', () => {
-  it('renders name, role, and description', () => {
+  it('renders name, role, and bio', () => {
     render(<Hero />);
     expect(screen.getByText('Sharath Cherian Thomas')).toBeInTheDocument();
     expect(screen.getByText('DevOps Engineer')).toBeInTheDocument();

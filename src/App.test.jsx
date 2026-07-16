@@ -11,7 +11,7 @@ vi.mock('./utils/dataParser', () => ({
     basics: {
       name: 'Sharath Cherian Thomas',
       role: 'DevOps Enthusiast',
-      roleDescription: 'DevOps and cloud engineer.',
+      bio: 'DevOps and cloud engineer.',
       github: 'https://github.com/sharathct',
       linkedin: 'https://www.linkedin.com/in/sharathct22',
       email: 'sharath@example.com',
@@ -54,8 +54,8 @@ describe('App Component Assembly', () => {
     ).toBeGreaterThanOrEqual(2);
 
     // Verify Hero is rendered
-    expect(screen.getByText('Welcome to my portfolio')).toBeInTheDocument();
     expect(screen.getByText('DevOps Enthusiast')).toBeInTheDocument();
+    expect(screen.getByText('DevOps and cloud engineer.')).toBeInTheDocument();
 
     // Verify Experience is rendered
     expect(
