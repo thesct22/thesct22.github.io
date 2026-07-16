@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import App from './App';
 
@@ -80,6 +80,11 @@ describe('App Component Assembly', () => {
       screen.getByRole('heading', { name: 'Experience' })
     ).toBeInTheDocument();
     expect(screen.getByText('Synopsys / Ansys')).toBeInTheDocument();
+
+    // Expand the entry to see milestones
+    const ansysButton = screen.getByText('Synopsys / Ansys').closest('button');
+    fireEvent.click(ansysButton);
+
     expect(screen.getByText('Senior Engineer')).toBeInTheDocument();
   });
 

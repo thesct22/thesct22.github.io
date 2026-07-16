@@ -7,14 +7,8 @@ export default function Experience() {
   const experiences = content.experience || [];
 
   // Keep track of expanded state for each experience entry.
-  // The first experience is expanded by default.
-  const [expandedIndices, setExpandedIndices] = useState(() => {
-    const initial = {};
-    if (experiences.length > 0) {
-      initial[0] = true;
-    }
-    return initial;
-  });
+  // All experiences are collapsed by default.
+  const [expandedIndices, setExpandedIndices] = useState({});
 
   const toggleExpand = (index) => {
     setExpandedIndices((prev) => ({
@@ -61,11 +55,11 @@ export default function Experience() {
                   </svg>
                 </button>
 
-                <div
-                  id={`exp-content-${index}`}
-                  className={`${styles.entryContent} ${isExpanded ? styles.expanded : ''}`}
-                >
-                  <div className={styles.contentInner}>
+                {isExpanded && (
+                  <div
+                    id={`exp-content-${index}`}
+                    className={styles.entryContent}
+                  >
                     {exp.milestones ? (
                       <div className={styles.milestones}>
                         {exp.milestones.map((ms, msIndex) => (
@@ -88,7 +82,7 @@ export default function Experience() {
                       <p className={styles.description}>{exp.description}</p>
                     )}
                   </div>
-                </div>
+                )}
               </article>
             );
           })}

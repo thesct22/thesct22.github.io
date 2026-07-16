@@ -92,19 +92,6 @@
 }
 
 .entryContent {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows var(--transition-base);
-  overflow: hidden;
-}
-
-.entryContent.expanded {
-  grid-template-rows: 1fr;
-}
-
-.contentInner {
-  min-height: 0;
-  overflow: hidden;
   padding-bottom: var(--space-md);
 }
 

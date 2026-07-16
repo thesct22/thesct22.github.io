@@ -49,7 +49,7 @@ describe('Experience Component', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all experience items and handles collapse/expand toggle', () => {
+  it('renders all experience items and handles collapse/expand toggle (all collapsed by default)', () => {
     render(<Experience />);
 
     // Verify presence of companies
@@ -63,16 +63,37 @@ describe('Experience Component', () => {
     const firstButton = buttons[0];
     const secondButton = buttons[1];
 
-    // Assert default expanded state (first open, second closed)
-    expect(firstButton).toHaveAttribute('aria-expanded', 'true');
+    // Assert default collapsed state
+    expect(firstButton).toHaveAttribute('aria-expanded', 'false');
     expect(secondButton).toHaveAttribute('aria-expanded', 'false');
+
+    // Milestones and description should NOT be in the DOM initially
+    expect(
+      screen.queryByText('DevOps and platform support.')
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Developed an IoT-based solution for Samsung Watches.')
+    ).not.toBeInTheDocument();
+
+    // Click first button to expand it
+    fireEvent.click(firstButton);
+    expect(firstButton).toHaveAttribute('aria-expanded', 'true');
+    expect(
+      screen.getByText('DevOps and platform support.')
+    ).toBeInTheDocument();
 
     // Click second button to expand it
     fireEvent.click(secondButton);
     expect(secondButton).toHaveAttribute('aria-expanded', 'true');
+    expect(
+      screen.getByText('Developed an IoT-based solution for Samsung Watches.')
+    ).toBeInTheDocument();
 
-    // Click first button to collapse it
+    // Click first button again to collapse it
     fireEvent.click(firstButton);
     expect(firstButton).toHaveAttribute('aria-expanded', 'false');
+    expect(
+      screen.queryByText('DevOps and platform support.')
+    ).not.toBeInTheDocument();
   });
 });
