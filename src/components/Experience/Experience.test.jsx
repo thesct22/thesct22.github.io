@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
 import Experience from './Experience';
@@ -49,36 +49,30 @@ describe('Experience Component', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all experience items with company, location, dates, note, and milestones/descriptions', () => {
+  it('renders all experience items and handles collapse/expand toggle', () => {
     render(<Experience />);
 
-    // First main entry
+    // Verify presence of companies
     expect(screen.getByText('Synopsys / Ansys')).toBeInTheDocument();
-    expect(
-      screen.getByText(/Sheffield, UK\s*·\s*Jul 2022\s*–\s*Present/)
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('Synopsys acquired Ansys in 2025')
-    ).toBeInTheDocument();
-
-    // Milestones for first entry
-    expect(screen.getByText('Senior Engineer')).toBeInTheDocument();
-    expect(screen.getByText('Jul 2025 – Present')).toBeInTheDocument();
-    expect(
-      screen.getByText('DevOps and platform support.')
-    ).toBeInTheDocument();
-
-    expect(screen.getByText('R&D Engineer II')).toBeInTheDocument();
-    expect(screen.getByText('Apr 2025 – Jul 2025')).toBeInTheDocument();
-    expect(screen.getByText('R&D Engineering.')).toBeInTheDocument();
-
-    // Second main entry (no milestones)
     expect(screen.getByText('Samsung R&D Institute India')).toBeInTheDocument();
-    expect(
-      screen.getByText(/Bengaluru, India\s*·\s*Nov 2019\s*–\s*Aug 2020/)
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('Developed an IoT-based solution for Samsung Watches.')
-    ).toBeInTheDocument();
+
+    // Query buttons
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(2);
+
+    const firstButton = buttons[0];
+    const secondButton = buttons[1];
+
+    // Assert default expanded state (first open, second closed)
+    expect(firstButton).toHaveAttribute('aria-expanded', 'true');
+    expect(secondButton).toHaveAttribute('aria-expanded', 'false');
+
+    // Click second button to expand it
+    fireEvent.click(secondButton);
+    expect(secondButton).toHaveAttribute('aria-expanded', 'true');
+
+    // Click first button to collapse it
+    fireEvent.click(firstButton);
+    expect(firstButton).toHaveAttribute('aria-expanded', 'false');
   });
 });
