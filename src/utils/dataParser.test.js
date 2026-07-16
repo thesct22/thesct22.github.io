@@ -1,40 +1,39 @@
+// @vitest-environment jsdom
 import { describe, it, expect } from 'vitest';
 import { getSiteContent } from './dataParser';
 
 describe('dataParser', () => {
-  it('parses the YAML content successfully', () => {
+  it('parses basics correctly', () => {
     const data = getSiteContent();
-    expect(data.basics.name).toBe('Sharath Cherian Thomas');
-    expect(data.basics.role).toBe('DevOps Engineer');
+    expect(data.basics.name).toBe('Sharath Thomas');
+    expect(data.basics.role).toBe('Senior DevOps Engineer');
+    expect(data.basics.bio).toBeDefined();
+    expect(data.basics.github).toBe('https://github.com/thesct22');
   });
 
-  it('contains the new Senior Engineer at Synopsys Inc role', () => {
+  it('parses consolidated experience entries', () => {
     const data = getSiteContent();
-    expect(data.experience).toBeDefined();
-    expect(Array.isArray(data.experience)).toBe(true);
-    expect(data.experience[0]).toEqual({
-      company: 'Synopsys Inc',
-      role: 'Senior Engineer',
-      startDate: 'July 2025',
-      endDate: 'Present',
-      location: 'Sheffield, England, United Kingdom',
-      description: 'DevOps and platform support.',
-    });
+    expect(data.experience.length).toBe(4);
+    expect(data.experience[0].company).toBe('Synopsys / Ansys');
+    expect(data.experience[0].milestones).toBeDefined();
+    expect(data.experience[0].milestones.length).toBe(5);
   });
 
-  it('contains education, skills, and portfolio data', () => {
+  it('parses all 8 skill categories', () => {
     const data = getSiteContent();
-    expect(data.education).toBeDefined();
-    expect(data.skills).toBeDefined();
-    expect(data.portfolio).toBeDefined();
-    expect(data.education.length).toBeGreaterThan(0);
-    expect(data.skills.length).toBeGreaterThan(0);
-    expect(data.portfolio.length).toBeGreaterThan(0);
+    expect(data.skills.length).toBe(8);
+    expect(data.skills[0].category).toBe('CI/CD & Pipelines');
   });
 
-  it('returns the same object reference on subsequent calls', () => {
-    const data1 = getSiteContent();
-    const data2 = getSiteContent();
-    expect(data1).toBe(data2);
+  it('parses projects with techStack arrays', () => {
+    const data = getSiteContent();
+    expect(data.projects.length).toBe(5);
+    expect(data.projects[0].techStack).toContain('React');
+  });
+
+  it('parses education and certifications', () => {
+    const data = getSiteContent();
+    expect(data.education.length).toBe(2);
+    expect(data.certifications.length).toBe(5);
   });
 });

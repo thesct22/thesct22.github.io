@@ -1,98 +1,115 @@
 basics:
-  name: 'Sharath Cherian Thomas'
-  role: 'DevOps Engineer'
-  roleDescription: 'Senior Engineer with expertise in Cloud Computing, CI/CD pipelines, and DevOps tooling. Skilled in Azure DevOps, React, Grafana, Google Kubernetes Engine, and containerised solutions. MSc in Advanced Computer Science from the University of Leicester.'
+  name: 'Sharath Thomas'
+  role: 'Senior DevOps Engineer'
+  bio: 'Building scalable CI/CD platforms and cloud infrastructure at Synopsys. From migrating mono-repos and containerizing developer tooling at Ansys to designing monitoring solutions with Grafana — I focus on making engineering teams ship faster and more reliably.'
   email: 'sharathct22@gmail.com'
   linkedin: 'https://www.linkedin.com/in/sharathct22'
   github: 'https://github.com/thesct22'
   website: 'https://sharath.is-a.dev'
 
-skills:
-  - category: 'Top Skills'
-    items: ['Azure DevOps', 'React.js', 'Grafana']
-  - category: 'Languages'
-    items: ['Malayalam', 'Spanish', 'Hindi', 'English']
-
 experience:
-  - company: 'Synopsys Inc'
-    role: 'Senior Engineer'
-    startDate: 'July 2025'
+  - company: 'Synopsys / Ansys'
+    location: 'Sheffield, UK'
+    startDate: 'Jul 2022'
     endDate: 'Present'
-    location: 'Sheffield, England, United Kingdom'
-    description: 'DevOps and platform support.'
-  - company: 'Ansys'
-    role: 'R&D Engineer II'
-    startDate: 'April 2025'
-    endDate: 'July 2025'
-    location: 'Sheffield, England, United Kingdom'
-    description: 'R&D Engineering.'
-  - company: 'Ansys'
-    role: 'Research And Development Engineer'
-    startDate: 'December 2023'
-    endDate: 'April 2025'
-    location: 'Sheffield, England, United Kingdom'
-    description: 'Research and Development Engineering.'
-  - company: 'Ansys'
-    role: 'DevOps Engineer'
-    startDate: 'July 2023'
-    endDate: 'December 2023'
-    location: 'Sheffield, England, United Kingdom'
-    description: 'DevOps Engineer.'
-  - company: 'Ansys'
-    role: 'DevOps Intern'
-    startDate: 'July 2022'
-    endDate: 'June 2023'
-    location: 'Sheffield, England, United Kingdom'
-    description: 'Helped create and maintain standardized CI/CD pipelines on GitHub for solution applications. Migrated and refactored multiple repositories while keeping the git histories intact from Azure DevOps-based mono-repo to GitHub and replicated the CI/CD on GitHub Actions. Developed and documented containerized application for providing UI-based access to Ansible scripts used in the organization with a text editor, terminal, and configuration panels using React, Flask and Ansible. Obscured the source code of developed Python applications by creating executables using Nuitka. Helped in promoting the development of containerized solutions and developing coursework to encourage the usage of logging and monitoring.'
-  - company: 'iLAB-Innovation Laboratory'
-    role: 'Volunteer'
-    startDate: 'June 2021'
-    endDate: 'March 2022'
-    location: 'Kozhikode, Kerala, India'
-    description: 'Volunteer at iLAB-Innovation Laboratory.'
+    note: 'Synopsys acquired Ansys in 2025'
+    milestones:
+      - role: 'Senior Engineer'
+        startDate: 'Jul 2025'
+        endDate: 'Present'
+        description: 'DevOps and platform support for cloud engineering tools and infrastructure.'
+      - role: 'R&D Engineer II'
+        startDate: 'Apr 2025'
+        endDate: 'Jul 2025'
+        description: 'Led R&D engineering initiatives for build and release automation.'
+      - role: 'R&D Engineer'
+        startDate: 'Dec 2023'
+        endDate: 'Apr 2025'
+        description: 'Developed and maintained internal CI/CD tooling and infrastructure.'
+      - role: 'DevOps Engineer'
+        startDate: 'Jul 2023'
+        endDate: 'Dec 2023'
+        description: 'Managed CI/CD pipelines, containerized solutions, and monitoring dashboards.'
+      - role: 'DevOps Intern'
+        startDate: 'Jul 2022'
+        endDate: 'Jun 2023'
+        description: 'Created standardized CI/CD pipelines on GitHub Actions. Migrated repositories from Azure DevOps mono-repo to GitHub preserving git histories. Built a containerized React/Flask web app for UI-based Ansible automation with integrated terminal and configuration panels. Developed Python executable packaging with Nuitka. Promoted containerization and observability practices.'
+
   - company: 'Samsung R&D Institute India'
-    role: 'Intern'
-    startDate: 'November 2019'
-    endDate: 'August 2020'
-    location: 'Bengaluru, Karnataka, India'
-    description: 'Actively participated in developing an IoT based solution for Samsung Watches'
-  - company: 'International Society of Automation(ISA-VIT)'
-    role: 'Technical Lead'
-    startDate: 'April 2019'
-    endDate: 'June 2020'
-    location: 'Vellore Area, India'
-    description: 'Technical Lead.'
-  - company: 'International Society of Automation(ISA-VIT)'
-    role: 'Core member'
-    startDate: 'December 2017'
-    endDate: 'March 2019'
-    location: 'Vellore, Tamil Nadu'
-    description: 'Core member.'
-  - company: 'EDGATE TECHNOLOGIES PRIVATE LIMITED'
-    role: 'Intern'
-    startDate: 'June 2019'
-    endDate: 'July 2019'
-    location: 'Bangalore'
-    description: 'Intern on Embedded Systems and IoT'
+    location: 'Bengaluru, India'
+    startDate: 'Nov 2019'
+    endDate: 'Aug 2020'
+    description: 'Developed an IoT-based solution for Samsung Watches, integrating sensor data with cloud services.'
+
+  - company: 'ISA-VIT (International Society of Automation)'
+    location: 'Vellore, India'
+    startDate: 'Dec 2017'
+    endDate: 'Jun 2020'
+    description: 'Progressed from Core Member to Technical Lead. Organised technical events and workshops for the student chapter.'
+
+  - company: 'EDGATE Technologies'
+    location: 'Bangalore, India'
+    startDate: 'Jun 2019'
+    endDate: 'Jul 2019'
+    description: 'Embedded Systems and IoT internship focusing on hardware-software integration.'
+
+skills:
+  - category: 'CI/CD & Pipelines'
+    items: ['GitHub Actions', 'Azure DevOps Pipelines', 'Jenkins']
+  - category: 'Containers & Orchestration'
+    items: ['Docker', 'Kubernetes', 'Google Kubernetes Engine', 'Helm']
+  - category: 'Cloud Platforms'
+    items: ['Azure', 'Google Cloud Platform']
+  - category: 'Monitoring & Observability'
+    items: ['Grafana', 'Prometheus', 'ELK Stack', 'Logging']
+  - category: 'IaC & Configuration'
+    items: ['Ansible', 'Terraform']
+  - category: 'Languages'
+    items: ['Python', 'JavaScript', 'TypeScript', 'Java', 'Bash', 'HCL']
+  - category: 'Frontend'
+    items: ['React', 'Flask', 'HTML/CSS']
+  - category: 'DevOps Tooling'
+    items: ['Git', 'Linux', 'Nuitka', 'Containerized Solutions']
+
+projects:
+  - title: 'Toolbox Web App'
+    description: 'Containerized web application providing UI-based access to Ansible automation scripts with integrated terminal, text editor, and configuration panels.'
+    techStack: ['React', 'Flask', 'Ansible', 'Docker']
+    url: 'https://github.com/thesct22/toolbox_webapp'
+
+  - title: 'K8s DSL'
+    description: 'Domain-Specific Language for Kubernetes resource definitions, built as MSc coursework at the University of Leicester using Eclipse Xtext.'
+    techStack: ['Java', 'Kubernetes', 'Xtext']
+    url: 'https://github.com/thesct22/co7217.dsl.k8s.parent'
+
+  - title: 'EnvMon'
+    description: 'IoT environment monitoring system with real-time sensor data visualization via line charts, backed by Firebase.'
+    techStack: ['Java', 'Firebase', 'Android']
+    url: 'https://github.com/thesct22/EnvMon'
+
+  - title: 'Ezyshare'
+    description: 'Peer-to-peer file sharing application using WebRTC for direct browser-to-browser file transfers without a relay server.'
+    techStack: ['JavaScript', 'WebRTC', 'P2P']
+    url: 'https://github.com/thesct22/ezyshare'
+
+  - title: 'Fractional Fourier Transform'
+    description: 'Web application for computing and visualizing the Fractional Fourier Transform of input signals with interactive parameter controls.'
+    techStack: ['Python', 'NumPy', 'Flask']
+    url: 'https://github.com/thesct22/fractional-fourier'
 
 education:
   - institution: 'University of Leicester'
-    degree: 'Master of Science, Advanced Computer Science'
-    startDate: 'September 2021'
-    endDate: 'September 2023'
-  - institution: 'Vellore Institute of Technology'
-    degree: 'Bachelor of Technology, Electrical and Electronics Engineering'
-    startDate: 'September 2017'
-    endDate: 'July 2021'
+    degree: 'MSc Advanced Computer Science'
+    startDate: '2021'
+    endDate: '2023'
+  - institution: 'VIT Vellore'
+    degree: 'BTech Electrical & Electronics Engineering'
+    startDate: '2017'
+    endDate: '2021'
 
 certifications:
-  - name: 'Industrial IoT on Google Cloud Platform'
-  - name: 'Architecting with Google Compute Engine Specialization'
-  - name: 'Architecting with Google Kubernetes Engine Specialization'
-  - name: 'Java for Android'
   - name: 'Kubernetes and Cloud Native Associate (KCNA)'
-
-portfolio:
-  - title: 'Personal Website'
-    url: 'https://sharath.is-a.dev'
-    description: 'React based responsive personal website.'
+  - name: 'Architecting with Google Kubernetes Engine Specialization'
+  - name: 'Architecting with Google Compute Engine Specialization'
+  - name: 'Industrial IoT on Google Cloud Platform'
+  - name: 'Java for Android'
