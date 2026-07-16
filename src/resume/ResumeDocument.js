@@ -44,7 +44,7 @@ const s = StyleSheet.create({
     fontSize: 22,
     fontFamily: 'Helvetica-Bold',
     color: colors.primary,
-    marginBottom: 4,
+    marginBottom: 10,
     letterSpacing: 0.5,
   },
   role: {
@@ -173,13 +173,13 @@ export default function ResumeDocument({ data }) {
         )
       ),
 
-      // Summary
-      basics.roleDescription &&
+      // Summary / Profile
+      basics.summary &&
         h(
           View,
           { style: s.section },
-          h(Text, { style: s.sectionTitle }, 'Professional Summary'),
-          h(Text, { style: s.summary }, basics.roleDescription)
+          h(Text, { style: s.sectionTitle }, 'Personal Profile'),
+          h(Text, { style: s.summary }, basics.summary)
         ),
 
       // Experience
