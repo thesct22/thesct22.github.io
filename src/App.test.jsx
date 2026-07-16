@@ -1,104 +1,113 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 import '@testing-library/jest-dom';
 import App from './App';
 
-// Mock getSiteContent for sub-components
 vi.mock('./utils/dataParser', () => ({
   getSiteContent: () => ({
     basics: {
-      name: 'Sharath Cherian Thomas',
-      role: 'DevOps Enthusiast',
-      bio: 'DevOps and cloud engineer.',
-      github: 'https://github.com/sharathct',
+      name: 'Sharath Thomas',
+      role: 'Senior DevOps Engineer',
+      bio: 'Building scalable CI/CD platforms.',
+      github: 'https://github.com/thesct22',
       linkedin: 'https://www.linkedin.com/in/sharathct22',
       email: 'sharath@example.com',
       website: 'https://sharath.is-a.dev',
     },
     experience: [
       {
-        company: 'Example Corp',
-        startDate: '2023',
+        company: 'Synopsys / Ansys',
+        location: 'Sheffield, UK',
+        startDate: 'Jul 2022',
         endDate: 'Present',
-        location: 'Remote',
-        description: 'Working on Kubernetes and SRE duties.',
+        milestones: [
+          {
+            role: 'Senior Engineer',
+            startDate: 'Jul 2025',
+            endDate: 'Present',
+            description: 'DevOps and platform support.',
+          },
+        ],
       },
     ],
     skills: [
       {
-        category: 'Cloud',
-        items: ['AWS', 'GCP'],
+        category: 'CI/CD & Pipelines',
+        items: ['GitHub Actions', 'Azure DevOps'],
       },
     ],
     projects: [
       {
-        title: 'Project Alpha',
-        description: 'A cloud deployment project.',
-        url: 'https://github.com/sharathct/alpha',
+        title: 'Toolbox Web App',
+        description: 'Containerized web app.',
+        techStack: ['React', 'Flask'],
+        url: 'https://github.com/thesct22/toolbox_webapp',
       },
     ],
     education: [
       {
-        degree: 'MSc Advanced Computer Science',
         institution: 'University of Leicester',
+        degree: 'MSc Advanced Computer Science',
         startDate: '2021',
         endDate: '2023',
       },
     ],
-    certifications: [
-      {
-        name: 'Kubernetes and Cloud Native Associate (KCNA)',
-      },
-    ],
+    certifications: [{ name: 'KCNA' }],
   }),
 }));
 
 describe('App Component Assembly', () => {
-  it('renders all sections inside the layout', () => {
+  it('renders the navbar with name', () => {
     render(<App />);
+    expect(screen.getByRole('banner')).toBeInTheDocument();
+    expect(screen.getAllByText('Sharath Thomas').length).toBeGreaterThanOrEqual(
+      1
+    );
+  });
 
-    // Verify Layout is rendered (nav links, name)
-    expect(screen.getByRole('navigation')).toBeInTheDocument();
+  it('renders the hero section', () => {
+    render(<App />);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      'Sharath Thomas'
+    );
+    expect(screen.getByText('Senior DevOps Engineer')).toBeInTheDocument();
+  });
+
+  it('renders the experience section', () => {
+    render(<App />);
     expect(
-      screen.getAllByText('Sharath Cherian Thomas').length
-    ).toBeGreaterThanOrEqual(2);
-
-    // Verify Hero is rendered
-    expect(screen.getByText('DevOps Enthusiast')).toBeInTheDocument();
-    expect(screen.getByText('DevOps and cloud engineer.')).toBeInTheDocument();
-
-    // Verify Experience is rendered
-    expect(
-      screen.getByRole('heading', { name: 'Experience', level: 2 })
+      screen.getByRole('heading', { name: 'Experience' })
     ).toBeInTheDocument();
-    expect(screen.getByText('Example Corp')).toBeInTheDocument();
+    expect(screen.getByText('Synopsys / Ansys')).toBeInTheDocument();
+    expect(screen.getByText('Senior Engineer')).toBeInTheDocument();
+  });
 
-    // Verify Skills is rendered
-    expect(
-      screen.getByRole('heading', { name: 'Skills', level: 2 })
-    ).toBeInTheDocument();
-    expect(screen.getByText('Cloud')).toBeInTheDocument();
+  it('renders the skills section', () => {
+    render(<App />);
+    expect(screen.getByRole('heading', { name: 'Skills' })).toBeInTheDocument();
+    expect(screen.getByText('GitHub Actions')).toBeInTheDocument();
+  });
 
-    // Verify Projects is rendered
+  it('renders the projects section', () => {
+    render(<App />);
     expect(
-      screen.getByRole('heading', { name: 'Projects', level: 2 })
+      screen.getByRole('heading', { name: 'Projects' })
     ).toBeInTheDocument();
-    expect(screen.getByText('Project Alpha')).toBeInTheDocument();
+    expect(screen.getByText('Toolbox Web App')).toBeInTheDocument();
+  });
 
-    // Verify Education & Certifications is rendered
-    expect(
-      screen.getByRole('heading', {
-        name: 'Education & Certifications',
-        level: 2,
-      })
-    ).toBeInTheDocument();
+  it('renders the education section', () => {
+    render(<App />);
+    expect(screen.getByText('Education & Certifications')).toBeInTheDocument();
     expect(
       screen.getByText('MSc Advanced Computer Science')
     ).toBeInTheDocument();
+    expect(screen.getByText('KCNA')).toBeInTheDocument();
+  });
 
-    // Verify Footer is rendered
+  it('renders the footer', () => {
+    render(<App />);
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
 });
