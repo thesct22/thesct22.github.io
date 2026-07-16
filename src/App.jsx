@@ -1,22 +1,29 @@
-import React from 'react';
 import { HelmetProvider } from 'react-helmet-async';
-import Layout from './components/Layout/Layout';
+import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Experience from './components/Experience/Experience';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
+import Education from './components/Education/Education';
 import Footer from './components/Footer/Footer';
+import SEO from './components/SEO/SEO';
+import './App.css';
 
 function App() {
   return (
     <HelmetProvider>
-      <Layout>
-        <Hero />
-        <Experience />
-        <Skills />
-        <Projects />
+      <div className="app">
+        <SEO />
+        <Navbar />
+        <main className="main">
+          <Hero />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Education />
+        </main>
         <Footer />
-      </Layout>
+      </div>
     </HelmetProvider>
   );
 }
