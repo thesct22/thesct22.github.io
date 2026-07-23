@@ -6,27 +6,30 @@ A clean, minimal engineering portfolio built with React 19 and Vite. Designed fo
 
 ## Features
 
-- 🎨 **Dark slate/charcoal design** — clean, professional, no gimmicks
-- 📄 **YAML-driven content** — edit one file to personalize everything
+- 🎨 **Minimal, Motion-Driven Design** — light theme, fluid typography, and floating navigation
+- 📄 **YAML-Driven Content** — edit one file (`content.yaml`) to personalize everything!
+- 🖨️ **Dynamic PDF Generation** — automatically generates a perfectly formatted ATS-friendly `resume.pdf` straight from your YAML data!
 - 🎛️ **Design tokens** — change colors, fonts, and spacing in a single CSS file
-- ♿ **Accessible** — Radix UI primitives, keyboard navigation, semantic HTML
-- 📱 **Responsive** — works on mobile, tablet, and desktop
+- ♿ **Accessible** — keyboard navigation and semantic HTML
+- 📱 **Responsive** — works flawlessly on mobile, tablet, and desktop
 - 🚀 **Fast** — Vite build, no heavy dependencies
 - 🧪 **Tested** — Vitest + React Testing Library
 
 ## Use as a Template
 
 1. **Fork this repo** and clone it
-2. **Edit `src/data/content.yaml`** — replace with your info (name, bio, experience, skills, projects, education, certifications)
-3. **Edit `src/theme.css`** — customize colors, fonts, and spacing
-4. **Replace `public/resume.pdf`** with your resume
-5. **Deploy:**
+2. **Edit `src/data/content.yaml`** — replace with your information (name, bio, experience, skills, etc.)
+3. **Generate your Resume PDF** (optional, the CI/CD pipeline does it too):
    ```bash
    npm install
-   npm run build
-   # Push to GitHub and enable GitHub Pages from the gh-pages branch
-   # Or deploy the `dist/` folder to any static host
+   npm run generate:resume
    ```
+4. **Edit `src/theme.css`** — customize colors, fonts, and spacing
+5. **Deploy to GitHub Pages:**
+   - Go to your repository **Settings** > **Pages**.
+   - Change the **Source** to **GitHub Actions**.
+   - Make sure your repository is **Public** (required for free GitHub accounts to use Pages).
+   - Commit and push to the `main` branch. The included GitHub Actions workflow will automatically lint, test, generate your PDF, and deploy your site!
 
 ## Development
 
