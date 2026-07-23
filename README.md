@@ -35,10 +35,11 @@ A clean, minimal engineering portfolio built with React 19 and Vite. Designed fo
 
 ```bash
 npm install
-npm run dev     # Start dev server at localhost:5173
-npm test        # Run tests
-npm run build   # Production build
-npm run lint    # Lint check
+npm run dev               # Start dev server at localhost:5173
+npm test                  # Run tests
+npm run generate:resume   # Generate your resume PDF
+npm run build             # Production build
+npm run lint              # Lint check
 ```
 
 ## Project Structure
