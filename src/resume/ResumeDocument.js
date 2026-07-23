@@ -28,51 +28,51 @@ const colors = {
 
 const s = StyleSheet.create({
   page: {
-    padding: '36 40',
+    padding: '24 32',
     fontFamily: 'Helvetica',
-    fontSize: 9.5,
+    fontSize: 9,
     color: colors.text,
     backgroundColor: colors.bg,
-    lineHeight: 1.4,
+    lineHeight: 1.35,
   },
   header: {
-    marginBottom: 16,
+    marginBottom: 12,
     borderBottom: `2 solid ${colors.accent}`,
-    paddingBottom: 12,
+    paddingBottom: 8,
   },
   name: {
-    fontSize: 22,
+    fontSize: 18,
     fontFamily: 'Helvetica-Bold',
     color: colors.primary,
-    marginBottom: 10,
+    marginBottom: 6,
     letterSpacing: 0.5,
   },
   role: {
-    fontSize: 12,
+    fontSize: 11,
     color: colors.accent,
     fontFamily: 'Helvetica-Bold',
-    marginBottom: 6,
+    marginBottom: 4,
   },
   contactRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
   contactLink: {
-    fontSize: 8.5,
+    fontSize: 8,
     color: colors.accent,
     textDecoration: 'none',
     marginRight: 12,
   },
-  section: { marginBottom: 12 },
+  section: { marginBottom: 10 },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 10,
     fontFamily: 'Helvetica-Bold',
     color: colors.primary,
     textTransform: 'uppercase',
     letterSpacing: 1.2,
     borderBottom: `1 solid ${colors.border}`,
-    paddingBottom: 3,
-    marginBottom: 8,
+    paddingBottom: 2,
+    marginBottom: 6,
   },
-  summary: { fontSize: 9.5, color: colors.text, lineHeight: 1.5 },
-  expEntry: { marginBottom: 8 },
+  summary: { fontSize: 9, color: colors.text, lineHeight: 1.4 },
+  expEntry: { marginBottom: 6 },
   expHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -80,50 +80,52 @@ const s = StyleSheet.create({
     marginBottom: 2,
   },
   expRole: {
-    fontSize: 10,
+    fontSize: 9.5,
     fontFamily: 'Helvetica-Bold',
     color: colors.primary,
   },
-  expDate: { fontSize: 8.5, color: colors.textLight, textAlign: 'right' },
+  expDate: { fontSize: 8, color: colors.textLight, textAlign: 'right' },
   expCompanyRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 3,
+    marginBottom: 2,
   },
   expCompany: {
-    fontSize: 9,
+    fontSize: 8.5,
     fontFamily: 'Helvetica-Oblique',
     color: colors.accent,
   },
-  expLocation: { fontSize: 8.5, color: colors.textLight },
-  expDescription: { fontSize: 9, color: colors.text, lineHeight: 1.45 },
-  eduEntry: { marginBottom: 6 },
+  expLocation: { fontSize: 8, color: colors.textLight },
+  expDescription: { fontSize: 8.5, color: colors.text, lineHeight: 1.4 },
+  eduEntry: { marginBottom: 4 },
   eduHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
   eduDegree: {
-    fontSize: 10,
-    fontFamily: 'Helvetica-Bold',
-    color: colors.primary,
-  },
-  eduDate: { fontSize: 8.5, color: colors.textLight },
-  eduInstitution: {
-    fontSize: 9,
-    fontFamily: 'Helvetica-Oblique',
-    color: colors.accent,
-  },
-  skillCategory: { marginBottom: 4 },
-  skillCategoryTitle: {
     fontSize: 9.5,
     fontFamily: 'Helvetica-Bold',
     color: colors.primary,
   },
-  skillItems: { fontSize: 9, color: colors.text },
+  eduDate: { fontSize: 8, color: colors.textLight },
+  eduInstitution: {
+    fontSize: 8.5,
+    fontFamily: 'Helvetica-Oblique',
+    color: colors.accent,
+    marginBottom: 2,
+  },
+  eduDescription: { fontSize: 8.5, color: colors.text, lineHeight: 1.4 },
+  skillCategory: { marginBottom: 3 },
+  skillCategoryTitle: {
+    fontSize: 9,
+    fontFamily: 'Helvetica-Bold',
+    color: colors.primary,
+  },
+  skillItems: { fontSize: 8.5, color: colors.text },
   certRow: { flexDirection: 'row', alignItems: 'flex-start' },
-  certBullet: { fontSize: 9, color: colors.accent, marginRight: 4 },
-  certItem: { fontSize: 9, color: colors.text, marginBottom: 2 },
+  certBullet: { fontSize: 8.5, color: colors.accent, marginRight: 4 },
+  certItem: { fontSize: 8.5, color: colors.text, marginBottom: 2 },
 });
 
 export default function ResumeDocument({ data }) {
@@ -229,8 +231,35 @@ export default function ResumeDocument({ data }) {
                             `${ms.startDate} — ${ms.endDate}`
                           )
                         ),
-                        ms.description &&
-                          h(Text, { style: s.expDescription }, ms.description)
+                        ms.highlights &&
+                          h(
+                            View,
+                            null,
+                            ...ms.highlights.map((highlight, hIndex) =>
+                              h(
+                                View,
+                                {
+                                  key: hIndex,
+                                  style: {
+                                    flexDirection: 'row',
+                                    marginBottom: 2,
+                                  },
+                                },
+                                h(
+                                  Text,
+                                  {
+                                    style: {
+                                      fontSize: 8.5,
+                                      color: colors.accent,
+                                      marginRight: 4,
+                                    },
+                                  },
+                                  '•'
+                                ),
+                                h(Text, { style: s.expDescription }, highlight)
+                              )
+                            )
+                          )
                       )
                     )
                   )
@@ -247,8 +276,32 @@ export default function ResumeDocument({ data }) {
                         `${exp.startDate} — ${exp.endDate}`
                       )
                     ),
-                    exp.description &&
-                      h(Text, { style: s.expDescription }, exp.description)
+                    exp.highlights &&
+                      h(
+                        View,
+                        null,
+                        ...exp.highlights.map((highlight, hIndex) =>
+                          h(
+                            View,
+                            {
+                              key: hIndex,
+                              style: { flexDirection: 'row', marginBottom: 2 },
+                            },
+                            h(
+                              Text,
+                              {
+                                style: {
+                                  fontSize: 8.5,
+                                  color: colors.accent,
+                                  marginRight: 4,
+                                },
+                              },
+                              '•'
+                            ),
+                            h(Text, { style: s.expDescription }, highlight)
+                          )
+                        )
+                      )
                   )
             )
           )
@@ -274,7 +327,9 @@ export default function ResumeDocument({ data }) {
                   `${edu.startDate} — ${edu.endDate}`
                 )
               ),
-              h(Text, { style: s.eduInstitution }, edu.institution)
+              h(Text, { style: s.eduInstitution }, edu.institution),
+              edu.description &&
+                h(Text, { style: s.eduDescription }, edu.description)
             )
           )
         ),

@@ -1,28 +1,29 @@
 /* src/theme.css — Design Tokens */
 :root {
   /* Backgrounds */
-  --bg-primary: #0f1117;
-  --bg-surface: #161922;
-  --bg-elevated: #1c1f2e;
-  --bg-hover: #1e2435;
+  --bg-primary: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-hover: #f4f4f5;
 
   /* Text */
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #09090b;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
 
   /* Accent */
-  --accent: #38bdf8;
-  --accent-hover: #7dd3fc;
-  --accent-subtle: rgba(56, 189, 248, 0.1);
-  --accent-border: rgba(56, 189, 248, 0.2);
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-subtle: rgba(37, 99, 235, 0.1);
+  --accent-border: rgba(37, 99, 235, 0.2);
 
   /* Borders */
-  --border: #1e293b;
-  --border-hover: #334155;
+  --border: #e4e4e7;
+  --border-hover: #d4d4d8;
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Archivo', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
 
   /* Spacing scale */

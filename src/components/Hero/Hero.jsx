@@ -17,7 +17,7 @@ export default function Hero() {
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.content}>
         <h1 className={styles.name}>{name}</h1>
-        <p className={styles.role}>{role}</p>
+        <h2 className={styles.role}>{role}</h2>
         <p className={styles.bio}>{bio}</p>
 
         <div className={styles.actions}>

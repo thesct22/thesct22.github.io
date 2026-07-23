@@ -1,8 +1,8 @@
 basics:
   name: 'Sharath Thomas'
   role: 'Senior DevOps Engineer'
-  bio: 'Building scalable CI/CD platforms and cloud infrastructure at Synopsys. From migrating mono-repos and containerizing developer tooling at Ansys to designing monitoring solutions with Grafana — I focus on making engineering teams ship faster and more reliably.'
-  summary: 'Inquisitive and innovative Computer Science post-graduate from the University of Leicester. Highly skilled in DevOps and cloud technologies, IoT, mobile, and web development. Proven student leader as former Technical Lead of a student chapter and published researcher. Seeking to leverage software development and technical leadership skills in a high-impact engineering role.'
+  bio: 'I build the platforms and infrastructure that let engineering teams ship simulation software. Whether it is spinning up cloud environments, wiring together CI/CD pipelines, or prototyping something nobody has tried before — I figure it out and keep things moving.'
+  summary: 'Senior DevOps Engineer with 3+ years of experience building cloud-native platforms and CI/CD infrastructure for engineering simulation products. Proven track record of rapid prototyping, cross-team enablement, and turning ambiguous technical challenges into production-ready solutions across Azure, AWS, and Kubernetes environments. Published researcher with an MSc in Advanced Computer Science from the University of Leicester.'
   email: 'sharathct22@gmail.com'
   linkedin: 'https://www.linkedin.com/in/sharathct22'
   github: 'https://github.com/thesct22'
@@ -13,64 +13,88 @@ experience:
     location: 'Sheffield, UK'
     startDate: 'Jul 2022'
     endDate: 'Present'
-    note: 'Synopsys acquired Ansys in 2025'
     milestones:
       - role: 'Senior Engineer'
-        startDate: 'Jul 2025'
-        endDate: 'Present'
-        description: 'Architected and supported enterprise-scale cloud engineering platforms and infrastructure on Azure/GCP, improving deployment reliability by 35%.'
-      - role: 'R&D Engineer II'
         startDate: 'Apr 2025'
-        endDate: 'Jul 2025'
-        description: 'Led R&D initiatives for build and release automation, designing CI/CD workflows that accelerated software release cycles by 40%.'
-      - role: 'R&D Engineer'
-        startDate: 'Dec 2023'
+        endDate: 'Present'
+        highlights:
+          - 'Cross-team platform engineer and go-to contact for integration, deployment, and troubleshooting of Ansys cloud simulation platforms.'
+          - 'Led the PoC for containerizing NVIDIA Omniverse Kit Apps (digital twin) and deploying them on OKAS and HPS.'
+          - 'Built a custom UI for job submission and real-time streaming, enabling instant visual feedback for simulation users.'
+          - 'Provisioned and managed Azure Kubernetes clusters (AKS) for scalable OKAS deployments.'
+          - 'Contributed to an internal container registry platform with Terraform-provisioned infrastructure for automated image scanning, promotion, and delivery.'
+
+      - role: 'R&D Engineer II'
+        startDate: 'Dec 2024'
         endDate: 'Apr 2025'
-        description: 'Designed, developed, and maintained robust internal CI/CD tooling and scalable test infrastructure supporting 150+ developers.'
-      - role: 'DevOps Engineer'
+        highlights:
+          - 'Designed and maintained GitHub Actions composite actions and reusable workflows for SAF SDK components and SAF-based applications.'
+          - 'Automated checks, tests, builds, and release pipelines, reducing manual deployment efforts across multiple engineering teams.'
+          - 'Drove the Ansys Fluent webapp streaming PoC, enabling browser-based simulation access via HPS and Ansys Cloud Burst Compute.'
+          - 'Deployed and debugged AWS Parallel Clusters with Slurm queues for scalable HPS compute.'
+          - 'Created Terraform modules for deploying platform components on single-node K3s clusters.'
+
+      - role: 'R&D Engineer'
         startDate: 'Jul 2023'
-        endDate: 'Dec 2023'
-        description: 'Streamlined CI/CD pipelines and managed containerized cloud workloads; engineered real-time Grafana/Prometheus dashboards to monitor pipeline health.'
+        endDate: 'Dec 2024'
+        highlights:
+          - 'Automated Ansys HPS deployment on VMs using Ansible, later migrating the Simulation Platform to a Docker Compose stack.'
+          - 'Supported developers across multiple teams in deployment, maintenance, and complex troubleshooting.'
+          - 'Built a PoC converting SAF platform components (portal API/UI, Keycloak, Nginx, OAuth2-Proxy) to Windows Services for customers unable to use Docker.'
+          - 'Managed on-prem and cloud VMs across Azure and AWS for platform hosting and development.'
+
       - role: 'DevOps Intern'
         startDate: 'Jul 2022'
         endDate: 'Jun 2023'
-        description: 'Standardized enterprise CI/CD pipelines using GitHub Actions, migrating 50+ repositories from Azure DevOps to GitHub while preserving git history. Built and containerized a React/Flask web application for Ansible automation. Packaged Python tools with Nuitka, reducing deployment overhead by 25%.'
+        highlights:
+          - 'Created and maintained standardized CI/CD pipelines using GitHub Actions for solution applications.'
+          - 'Migrated multiple repositories from an Azure DevOps monorepo to GitHub, preserving full git history and pipeline configurations.'
+          - 'Built and containerized a React/Flask web application providing UI-based access to internal Ansible automation scripts.'
+          - 'Packaged Python developer tools with Nuitka for streamlined internal distribution.'
 
   - company: 'Samsung R&D Institute India'
     location: 'Bengaluru, India'
     startDate: 'Nov 2019'
     endDate: 'Aug 2020'
-    description: 'Developed an IoT-based health-telemetry solution for Samsung Watches, integrating real-time sensor data with AWS IoT Core services.'
+    highlights:
+      - 'Developed a gesture recognition application for Samsung Watches using Tizen OS.'
+      - 'Enabled smartwatch-based control of Samsung TVs through intuitive hand gestures for actions like channel switching and volume adjustment.'
+      - 'Built sensor data processing pipelines for real-time gesture interpretation on wearable hardware.'
 
   - company: 'ISA-VIT (International Society of Automation)'
     location: 'Vellore, India'
     startDate: 'Dec 2017'
     endDate: 'Jun 2020'
-    description: 'Progressed from Core Member to Technical Lead. Organised technical events and workshops for the student chapter.'
+    highlights:
+      - 'Progressed from Core Member to Technical Head of the student chapter, leading and mentoring 100+ members.'
+      - 'Conducted weekly "Technitudes" sessions introducing students to emerging technologies in automation, IoT, and software development.'
+      - 'Co-ordinated an international research conference for academic paper publications as part of the board.'
+      - 'Organised hands-on workshops and events that made the chapter a go-to community for skill development on campus.'
 
   - company: 'EDGATE Technologies'
     location: 'Bangalore, India'
     startDate: 'Jun 2019'
     endDate: 'Jul 2019'
-    description: 'Embedded Systems and IoT internship focusing on hardware-software integration.'
+    highlights:
+      - 'Embedded Systems and IoT internship focusing on hardware-software integration using Texas Instruments Launchpads.'
 
 skills:
-  - category: 'CI/CD & Pipelines'
-    items: ['GitHub Actions', 'Azure DevOps Pipelines', 'Jenkins']
+  - category: 'CI/CD & Automation'
+    items: ['GitHub Actions', 'Azure DevOps Pipelines', 'Tekton']
   - category: 'Containers & Orchestration'
-    items: ['Docker', 'Kubernetes', 'Google Kubernetes Engine', 'Helm']
+    items: ['Docker', 'Docker Compose', 'Kubernetes', 'K3s', 'Helm']
   - category: 'Cloud Platforms'
-    items: ['Azure', 'Google Cloud Platform']
-  - category: 'Monitoring & Observability'
-    items: ['Grafana', 'Prometheus', 'ELK Stack', 'Logging']
-  - category: 'IaC & Configuration'
-    items: ['Ansible', 'Terraform']
+    items: ['Azure', 'AWS', 'GCP']
+  - category: 'Infrastructure as Code'
+    items: ['Terraform', 'Ansible']
+  - category: 'Platform & Networking'
+    items: ['Traefik', 'Nginx', 'Keycloak', 'OAuth2-Proxy', 'Slurm']
   - category: 'Languages'
-    items: ['Python', 'JavaScript', 'TypeScript', 'Java', 'Bash', 'HCL']
-  - category: 'Frontend'
-    items: ['React', 'Flask', 'HTML/CSS']
+    items: ['Python', 'Go', 'JavaScript', 'TypeScript', 'Bash', 'HCL', 'Java']
+  - category: 'Frontend & Backend'
+    items: ['React', 'FastAPI', 'Node.js', 'PostgreSQL']
   - category: 'DevOps Tooling'
-    items: ['Git', 'Linux', 'Nuitka', 'Containerized Solutions']
+    items: ['Git', 'Linux', 'Nuitka', 'Zot (OCI Registry)']
 
 projects:
   - title: 'Toolbox Web App'
@@ -100,13 +124,15 @@ projects:
 
 education:
   - institution: 'University of Leicester'
-    degree: 'MSc Advanced Computer Science'
-    startDate: '2021'
-    endDate: '2023'
+    degree: 'MSc Advanced Computer Science with Industry'
+    startDate: 'Sep 2021'
+    endDate: 'Sep 2023'
+    description: 'Passed with Merit. Course topics include Cloud Computing and Mobile and Web Applications.'
   - institution: 'VIT Vellore'
-    degree: 'BTech Electrical & Electronics Engineering'
-    startDate: '2017'
-    endDate: '2021'
+    degree: 'BTech Electronics and Communications Engineering with Specialization in IoT and Sensors'
+    startDate: 'Jul 2017'
+    endDate: 'Jul 2021'
+    description: 'CGPA: 9.02/10. Course modules include DSA, Java, C++, Python, Web Technologies and Mobile App Development.'
 
 certifications:
   - name: 'Kubernetes and Cloud Native Associate (KCNA)'

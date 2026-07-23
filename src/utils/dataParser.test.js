@@ -16,13 +16,13 @@ describe('dataParser', () => {
     expect(data.experience.length).toBe(4);
     expect(data.experience[0].company).toBe('Synopsys / Ansys');
     expect(data.experience[0].milestones).toBeDefined();
-    expect(data.experience[0].milestones.length).toBe(5);
+    expect(data.experience[0].milestones.length).toBe(4);
   });
 
   it('parses all 8 skill categories', () => {
     const data = getSiteContent();
     expect(data.skills.length).toBe(8);
-    expect(data.skills[0].category).toBe('CI/CD & Pipelines');
+    expect(data.skills[0].category).toBe('CI/CD & Automation');
   });
 
   it('parses projects with techStack arrays', () => {

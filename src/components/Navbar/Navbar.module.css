@@ -1,22 +1,28 @@
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: var(--space-md);
+  left: var(--space-md);
+  right: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
   height: var(--nav-height);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(15, 17, 23, 0.85);
+  background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--transition-base);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
 }
 
 .scrolled {
-  border-bottom-color: var(--border);
+  border-color: var(--border);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-md);
 }
 
 .container {
@@ -100,22 +106,34 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
+}
+
+.navIndicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: var(--bg-hover);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .navLink {
+  position: relative;
+  z-index: 1;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-secondary);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-sm);
-  transition:
-    color var(--transition-fast),
-    background-color var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
-.navLink:hover {
+.navLink:hover,
+.navLinkActive {
   color: var(--text-primary);
-  background-color: var(--bg-hover);
 }
 
 .resumeButton {
@@ -140,15 +158,17 @@
 
   .nav {
     position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    background-color: var(--bg-primary);
-    border-bottom: 1px solid var(--border);
+    top: calc(var(--nav-height) + var(--space-md) + var(--space-xs));
+    left: var(--space-md);
+    right: var(--space-md);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
     padding: var(--space-md);
-    transform: translateY(-100%);
+    transform: translateY(-120%);
     opacity: 0;
     pointer-events: none;
+    box-shadow: var(--shadow-md);
     transition:
       transform var(--transition-base),
       opacity var(--transition-base);

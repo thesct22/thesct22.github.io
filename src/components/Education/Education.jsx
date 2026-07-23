@@ -21,6 +21,9 @@ export default function Education() {
                   <p className={styles.dates}>
                     {edu.startDate} – {edu.endDate}
                   </p>
+                  {edu.description && (
+                    <p className={styles.description}>{edu.description}</p>
+                  )}
                 </div>
               ))}
             </div>
